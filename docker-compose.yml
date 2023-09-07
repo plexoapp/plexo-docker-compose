@@ -25,7 +25,7 @@ services:
       - '5050:80'
 
   plexo-engine:
-    image: 'minskylab/plexo:latest'
+    image: 'minskylab/plexo:v0.2.17'
     restart: always
     environment:
       - DATABASE_URL=postgres://plexo:${DATABASE_PASSWORD}@postgres:5432/plexo
@@ -37,14 +37,15 @@ services:
     depends_on:
       - postgres
 
-  # plexo-platform:
-  #   image: 'minskylab/plexo-platform:v0.2.16'
-  #   restart: always
+  plexo-platform:
+    image: 'minskylab/plexo-platform:v0.1.0'
+    restart: always
 
-  #   environment:
-  #     - NEXT_PUBLIC_GRAPHQL_ENDPOINT=https://${SERVER_DOMAIN}/graphql
-  #     - NEXT_PUBLIC_WS_ENDPOINT=wss://${SERVER_DOMAIN}/graphql/ws
-  #     - NEXT_PUBLIC_URL_AUTH=https://${SERVER_DOMAIN}/auth/github
+    environment:
+      - NEXT_PUBLIC_GRAPHQL_ENDPOINT=https://${SERVER_DOMAIN}/graphql
+      - NEXT_PUBLIC_WS_ENDPOINT=wss://${SERVER_DOMAIN}/graphql/ws
+      - NEXT_PUBLIC_URL_AUTH=https://${SERVER_DOMAIN}/auth/github
+      - NEXT_PUBLIC_URL_EMAIL_AUTH=https://${SERVER_DOMAIN}/auth/email/login
 
   gateway:
     image: 'jc21/nginx-proxy-manager:latest'
