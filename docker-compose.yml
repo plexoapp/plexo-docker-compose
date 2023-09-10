@@ -33,10 +33,10 @@ services:
     restart: always
 
     environment:
-      - NEXT_PUBLIC_GRAPHQL_ENDPOINT=https://${SERVER_DOMAIN}/graphql
-      - NEXT_PUBLIC_WS_ENDPOINT=wss://${SERVER_DOMAIN}/graphql/ws
-      - NEXT_PUBLIC_URL_AUTH=https://${SERVER_DOMAIN}/auth/github
-      - NEXT_PUBLIC_URL_EMAIL_AUTH=https://${SERVER_DOMAIN}/auth/email/login
+      - NEXT_PUBLIC_GRAPHQL_ENDPOINT=${DOMAIN}/graphql
+      - NEXT_PUBLIC_WS_ENDPOINT=wss://${HOST}/graphql/ws
+      - NEXT_PUBLIC_URL_AUTH=${DOMAIN}/auth/github
+      - NEXT_PUBLIC_URL_EMAIL_AUTH=${DOMAIN}/auth/email/login
 
   plexo-gateway:
     image: 'jc21/nginx-proxy-manager:latest'
