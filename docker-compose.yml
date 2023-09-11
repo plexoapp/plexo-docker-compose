@@ -31,7 +31,7 @@ services:
       - postgres
 
   plexo-platform:
-    image: 'minskylab/plexo-platform:v0.1.3'
+    image: 'minskylab/plexo-platform:v0.1.4'
     restart: always
 
     environment:
