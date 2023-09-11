@@ -21,8 +21,6 @@ services:
     environment:
       - DATABASE_URL=postgres://plexo:${DATABASE_PASSWORD}@postgres:5432/plexo
       - OPENAI_API_KEY=${OPENAI_API_KEY}
-      - GITHUB_CLIENT_ID=${GITHUB_CLIENT_ID}
-      - GITHUB_CLIENT_SECRET=${GITHUB_CLIENT_SECRET}
       - JWT_ACCESS_TOKEN_SECRET=${JWT_ACCESS_TOKEN_SECRET}
       - JWT_REFRESH_TOKEN_SECRET=${JWT_REFRESH_TOKEN_SECRET}
       - DOMAIN=${DOMAIN}
@@ -31,7 +29,7 @@ services:
       - postgres
 
   plexo-platform:
-    image: 'minskylab/plexo-platform:v0.1.5'
+    image: 'minskylab/plexo-platform:v0.1.6'
     restart: always
 
     environment:
