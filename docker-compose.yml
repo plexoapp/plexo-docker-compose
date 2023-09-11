@@ -16,7 +16,7 @@ services:
         - ./postgres-data:/var/lib/postgresql/data
 
   plexo-engine:
-    image: 'minskylab/plexo:v0.2.20'
+    image: 'minskylab/plexo:v0.2.22'
     restart: always
     environment:
       - DATABASE_URL=postgres://plexo:${DATABASE_PASSWORD}@postgres:5432/plexo
@@ -31,7 +31,7 @@ services:
       - postgres
 
   plexo-platform:
-    image: 'minskylab/plexo-platform:v0.1.4'
+    image: 'minskylab/plexo-platform:v0.1.5'
     restart: always
 
     environment:
