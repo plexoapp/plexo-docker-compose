@@ -16,7 +16,7 @@ services:
         - ./postgres-data:/var/lib/postgresql/data
 
   plexo-engine:
-    image: 'minskylab/plexo:v0.2.22'
+    image: 'minskylab/plexo:v0.2.26'
     restart: always
     environment:
       - DATABASE_URL=postgres://plexo:${DATABASE_PASSWORD}@postgres:5432/plexo
@@ -29,7 +29,7 @@ services:
       - postgres
 
   plexo-platform:
-    image: 'minskylab/plexo-platform:v0.1.9'
+    image: 'minskylab/plexo-platform:v0.1.10'
     restart: always
 
     environment:
@@ -37,6 +37,7 @@ services:
       - NEXT_PUBLIC_WS_ENDPOINT=wss://${HOST}/graphql/ws
       - NEXT_PUBLIC_URL_AUTH=${DOMAIN}/auth/github
       - NEXT_PUBLIC_URL_EMAIL_AUTH=${DOMAIN}/auth/email/login
+      - NEXT_PUBLIC_URL_LOGOUT=${DOMAIN}/auth/logout
 
   plexo-gateway:
     image: 'jc21/nginx-proxy-manager:latest'
