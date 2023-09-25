@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  plexo-gateway:
+    image: "jc21/nginx-proxy-manager:latest"
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "81:81"
+      - "443:443"
+    volumes:
+      - ./gateway-data:/data
+      - ./letsencrypt:/etc/letsencrypt
