@@ -16,5 +16,7 @@ services:
       - ./postgres-data:/var/lib/postgresql/data
 
    plexo-engine:
+    depends_on:
+      - postgres
     environment:
       - DATABASE_URL=postgres://plexo:${DATABASE_PASSWORD}@postgres:5432/plexo

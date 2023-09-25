@@ -10,9 +10,6 @@ services:
       - JWT_REFRESH_TOKEN_SECRET=${JWT_REFRESH_TOKEN_SECRET}
       - DOMAIN=${DOMAIN}
 
-    depends_on:
-      - postgres
-
   plexo-platform:
     image: "minskylab/plexo-platform:v0.1.10"
     restart: always
